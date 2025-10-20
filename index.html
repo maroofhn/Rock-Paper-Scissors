@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors Game 3</title>
+        <!-- Google Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+        <!-- External CSS -->
+        <link rel="stylesheet" href="rps-styles.css" />
+    </head>
+    <body>
+        <!-- Page Heading -->
+        <div class="mainh">
+            <h1 class="mainh1">Rock, Paper, Scissors Game</h1>
+            <h3 class="mainh3">By Maroof H.</h3>
+        </div>
+
+        <!-- Game Buttons -->
+        <div class="mainb">
+            <!-- Rock Button -->
+            <button onclick="
+                var ReturnComputer = CalculateComputerMove(); // Get computer move
+                var theresult = '';
+                var player = 'Rock';
+
+                // Determine game result
+                if (ReturnComputer === player) {
+                    theresult = 'Tie';
+                    sc.ties++;
+                } else if (ReturnComputer === 'Paper') {
+                    theresult = 'You lose.';
+                    sc.losses++;
+                } else {
+                    theresult = 'You Win.';
+                    sc.wins++;
+                }
+
+                // Save and update display
+                localStorage.setItem('sc', JSON.stringify(sc));
+                displayScore();
+                document.querySelector('.result-p').textContent = `Computer chose ${ReturnComputer}. Hence ${theresult}`;
+            ">Rock 🪨</button>
+
+            <!-- Paper Button -->
+            <button onclick="
+                var ReturnComputer = CalculateComputerMove();
+                var theresult = '';
+                var player = 'Paper';
+
+                if (ReturnComputer === player) {
+                    theresult = 'Tie';
+                    sc.ties++;
+                } else if (ReturnComputer === 'Scissor') {
+                    theresult = 'You lose.';
+                    sc.losses++;
+                } else {
+                    theresult = 'You Win.';
+                    sc.wins++;
+                }
+
+                localStorage.setItem('sc', JSON.stringify(sc));
+                displayScore();
+                document.querySelector('.result-p').textContent = `Computer chose ${ReturnComputer}. Hence ${theresult}`;
+            ">Paper 📄</button>
+
+            <!-- Scissors Button -->
+            <button onclick="
+                var ReturnComputer = CalculateComputerMove();
+                var theresult = '';
+                var player = 'Scissor';
+
+                if (ReturnComputer === player) {
+                    theresult = 'Tie';
+                    sc.ties++;
+                } else if (ReturnComputer === 'Rock') {
+                    theresult = 'You lose.';
+                    sc.losses++;
+                } else {
+                    theresult = 'You Win.';
+                    sc.wins++;
+                }
+
+                localStorage.setItem('sc', JSON.stringify(sc));
+                displayScore();
+                document.querySelector('.result-p').textContent = `Computer chose ${ReturnComputer}. Hence ${theresult}`;
+            ">Scissors ✂️</button>
+        </div>
+
+        <!-- Score and Reset Section -->
+        <div class="mainb2">
+            <p class="result-p"></p> <!-- Displays game result -->
+            <p class="scores-p"></p> <!-- Displays scores -->
+            
+            <!-- Reset Scores Button -->
+            <button class="resetb" onclick="
+                sc = {wins: 0, losses: 0, ties: 0}; // Reset object
+                localStorage.setItem('sc', JSON.stringify(sc)); // Update storage
+                displayScore(); // Refresh display
+                document.querySelector('.result-p').textContent = `Reset Scores ✅`;
+            ">Reset Score</button>
+        </div>
+
+        <!-- Footer with LinkedIn Link -->
+        <p class="connectwith">Connect with me on <a href="https://www.linkedin.com/in/maroof-hassan-b13915315/" target="_blank">LinkedIn</a></p>
+
+        <script>
+            // Retrieve score from localStorage or set defaults
+            let sc = JSON.parse(localStorage.getItem('sc')) || {
+                wins: 0,
+                losses: 0,
+                ties: 0
+            };
+
+            // Randomly select a move for computer
+            function CalculateComputerMove() {
+                let randnum = Math.random();
+                if (randnum < 1/3) {
+                    return 'Rock';
+                } else if (randnum < 2/3) {
+                    return 'Paper';
+                } else {
+                    return 'Scissor';
+                }
+            }
+
+            // Display the current score on screen
+            function displayScore() {
+                document.querySelector('.scores-p').textContent = 
+                `Wins: ${sc.wins}, Losses: ${sc.losses}, Ties: ${sc.ties}`;
+            }
+
+            displayScore(); // Initial display on page load
+        </script>
+    </body>
+</html>
