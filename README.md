@@ -44,6 +44,3 @@ A fun, interactive **Rock, Paper, Scissors** game built with **HTML, CSS, and Ja
 
 - **Maroof Hassan**  
 Connect on [LinkedIn](https://www.linkedin.com/in/maroof-hassan-b13915315/)
-
-## 📂 File Structure
-
