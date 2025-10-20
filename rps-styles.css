@@ -1,0 +1,93 @@
+/* General button styling */
+button {
+    font-family: "Pixelify Sans", cursive;
+    font-size: 36px;
+    padding: 20px;
+    color: white;
+    background-color: black;
+    border-color: white;
+}
+
+/* Reset button smaller styling */
+.resetb {
+    font-size: 18px;
+    padding: 10px;
+}
+
+/* Body background */
+body {
+    background-color: black;
+}
+
+/* Main game buttons container */
+.mainb {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px; /* Space between buttons */
+}
+
+/* Score and reset section */
+.mainb2 {
+    display: flex;
+    flex-direction: column; /* Stack score and reset vertically */
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Main header section */
+.mainh {
+    align-items: center;
+    padding: 100px;
+}
+
+/* Score text */
+.scores-p {
+    text-align: center;
+    font-family: "Pixelify Sans", cursive;
+    color: white;
+    font-size: 18px;
+}
+
+/* Game result text */
+.result-p {
+    font-family: "Pixelify Sans", cursive;
+    color: red;
+    font-size: 30px;    
+}
+
+/* Main heading */
+.mainh1 {
+    text-align: center;
+    font-family: "Pixelify Sans", cursive;
+    color: white;
+    font-size: 60px;
+}
+
+/* Subheading */
+.mainh3 {
+    text-align: center;
+    font-family: "Pixelify Sans", cursive;
+    color: #FFD700;
+    font-size: 40px;
+    margin-top: -40px;
+}
+
+/* LinkedIn connect section */
+.connectwith {
+    font-family: "Pixelify Sans", cursive;
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+}
+
+/* Link styling */
+a {
+    color: white; /* Keep links visible on dark background */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline; /* Simple hover effect */
+}
